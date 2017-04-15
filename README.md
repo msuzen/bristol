@@ -9,13 +9,17 @@ Parallel Random Matrix tools.
 
 ## Installation
 
-To install with pip
+Install with pip from [pypi](https://pypi.python.org/pypi/bristol).
+
+```bash
+pip install bristol
+```
+
+To use the latest development version
 
 ```bash
 pip install -upgrade git+https://github.com/msuzen/bristol.git
 ```
-
-It will appear in pypi.
 
 ## Documentation
 * Under development

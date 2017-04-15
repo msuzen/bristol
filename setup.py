@@ -9,8 +9,8 @@ setup(
       description="bristol is set of random matrix tools with parallel processing capabilities. Current modules: circular ensembles, CUE, COE and CSM.",
       url="https://github.com/msuzen/bristol",
       author='M.Suzen',
+      author_email='suzen@acm.org',
       license= 'GPL-3',
       packages=['bristol'],
-      install_requires=['numpy', 'multiprocessing'],
-      zip_safe=False
+      install_requires=['numpy', 'multiprocessing']
      )
