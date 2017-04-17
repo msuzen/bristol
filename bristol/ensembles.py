@@ -25,7 +25,7 @@ def _n_eigen_circular2(seed, N, size, ensemble='CUE',
 class circular:
 
     def __init__(self):
-        
+        print("")
  
     def unit_anti(self,N=2, adir='lower'):
         """
