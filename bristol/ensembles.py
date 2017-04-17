@@ -70,7 +70,7 @@ class circular:
         z  = ce.unit_symplectic(4,adir='upper')  # upper anti-symmetric
         
         """
-        z = unit_anti(2, adir=adir)
+        z = self.unit_anti(2, adir=adir)
         return(np.kron(np.eye(N), z).astype(int)) 
 
 
@@ -132,7 +132,7 @@ class circular:
         Hcoe = gen_coe(10)
         
        """
-       Hcue = gen_cue(N,set_seed,seed)
+       Hcue = self.gen_cue(N,set_seed,seed)
        return(Hcue.transpose()*Hcue)
 
     def gen_cse(self, N, set_seed=False, seed=42391, adir='lower'):
@@ -159,8 +159,8 @@ class circular:
         Hcoe = gen_coe(10)
         
        """
-       Z    = unit_symplectic(N, adir=adir)
-       Hcue = gen_cue(2*N,set_seed,seed)
+       Z    = self.unit_symplectic(N, adir=adir)
+       Hcue = self.gen_cue(2*N,set_seed,seed)
        return((Z*Hcue.transpose()*Z)*Hcue)
 
     def eigen_circular(self, N, ensemble='CUE', set_seed=False, 
@@ -193,11 +193,11 @@ class circular:
                      CUE, COE or CSE must \
                      be selected.")
         if(ensemble == 'CUE'):
-            H     = gen_cue(N,seed=seed,set_seed=set_seed)
+            H     = self.gen_cue(N,seed=seed,set_seed=set_seed)
         if(ensemble == 'COE'):
-            H     = gen_coe(N,seed=seed,set_seed=set_seed)
+            H     = self.gen_coe(N,seed=seed,set_seed=set_seed)
         if(ensemble == 'CSE'):
-            H     = gen_cse(N,seed=seed,set_seed=set_seed,adir=adir)
+            H     = self.gen_cse(N,seed=seed,set_seed=set_seed,adir=adir)
         e, u = np.linalg.eig(H)
         return(e)
 
@@ -232,7 +232,7 @@ class circular:
            local_seed = seed
         c_eigen = np.empty(0)
         for i in range(size):
-           e = eigen_circular(N, ensemble=ensemble, set_seed=False, seed=42391, adir=adir)
+           e = self.eigen_circular(N, ensemble=ensemble, set_seed=False, seed=42391, adir=adir)
            c_eigen = np.append(c_eigen, e)
         return({'local_seed':local_seed, 'c_eigen':c_eigen})
 
@@ -243,7 +243,7 @@ class circular:
         as first argument.
 
         """
-        return(_n_eigen_circular(N, size, ensemble='CUE', 
+        return(self._n_eigen_circular(N, size, ensemble='CUE', 
                      adir='lower', set_seed=set_seed, seed=seed))
 
     def eigen_circular_ensemble(self, N, cSize=100, nchunks=4, 
@@ -290,14 +290,14 @@ class circular:
          c_eigen     = np.empty(0)
          for i in range(nchunks):
              res = {}
-             res = _n_eigen_circular(N=N, size=cSize, ensemble=ensemble, 
+             res = self._n_eigen_circular(N=N, size=cSize, ensemble=ensemble, 
                          adir='lower', set_seed=True, 
                          seed=seeds[i])
              local_seeds.append(res['local_seed'])
              c_eigen = np.append(c_eigen, res['c_eigen'])
          return({'local_seeds':local_seeds, 'c_eigen':c_eigen})
         if(parallel):
-          wrap_f      = partial(_n_eigen_circular2, N=N, 
+          wrap_f      = partial(self._n_eigen_circular2, N=N, 
                     size=cSize, ensemble='CUE',
                     adir='lower', set_seed=True) 
           pool      = mp.Pool(processes=nchunks)
