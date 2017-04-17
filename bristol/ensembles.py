@@ -11,11 +11,21 @@ import multiprocessing as mp
 from builtins import range
 from functools import partial
 
+def _n_eigen_circular2(seed, N, size, ensemble='CUE', 
+                       adir='lower', set_seed=False):
+        """
+        This is a wrapper for _n_eigen_circular, so `seed` comes
+        as first argument.
+
+        """
+        ce = circular()
+        return(ce._n_eigen_circular(N, size, ensemble='CUE', 
+                     adir='lower', set_seed=set_seed, seed=seed))
+
 class circular:
 
     def __init__(self):
-        print("Circular Ensembles") 
-       
+        
  
     def unit_anti(self,N=2, adir='lower'):
         """
@@ -236,15 +246,6 @@ class circular:
            c_eigen = np.append(c_eigen, e)
         return({'local_seed':local_seed, 'c_eigen':c_eigen})
 
-    def _n_eigen_circular2(self, seed, N, size, ensemble='CUE', 
-                   adir='lower', set_seed=False):
-        """
-        This is a wrapper for _n_eigen_circular, so `seed` comes
-        as first argument.
-
-        """
-        return(self._n_eigen_circular(N, size, ensemble='CUE', 
-                     adir='lower', set_seed=set_seed, seed=seed))
 
     def eigen_circular_ensemble(self, N, cSize=100, nchunks=4, 
                     ensemble='CUE', adir='lower', 
@@ -297,9 +298,9 @@ class circular:
              c_eigen = np.append(c_eigen, res['c_eigen'])
          return({'local_seeds':local_seeds, 'c_eigen':c_eigen})
         if(parallel):
-          wrap_f      = partial(self._n_eigen_circular2, N=N, 
-                    size=cSize, ensemble='CUE',
-                    adir='lower', set_seed=True) 
+          wrap_f      = partial(_n_eigen_circular2, N=N, 
+                                size=cSize, ensemble='CUE',
+                                adir='lower', set_seed=True) 
           pool      = mp.Pool(processes=nchunks)
           rrp      = pool.map(wrap_f, seeds)
           local_seeds = []
