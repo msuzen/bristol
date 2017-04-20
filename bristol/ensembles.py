@@ -301,8 +301,10 @@ class circular:
           wrap_f      = partial(_n_eigen_circular2, N=N, 
                                 size=cSize, ensemble='CUE',
                                 adir='lower', set_seed=True) 
-          pool      = mp.Pool(processes=nchunks)
-          rrp      = pool.map(wrap_f, seeds)
+          pool        = mp.Pool(processes=nchunks)
+          rrp         = pool.map(wrap_f, seeds)
+          pool.close()
+          pool.join()
           local_seeds = []
           c_eigen      = np.empty(0)
           for j in range(nchunks):
