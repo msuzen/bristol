@@ -19,7 +19,7 @@ def _n_eigen_circular2(seed, N, size, ensemble='CUE',
 
         """
         ce = circular()
-        return(ce._n_eigen_circular(N, size, ensemble='CUE', 
+        return(ce._n_eigen_circular(N, size, ensemble=ensemble, 
                      adir='lower', set_seed=set_seed, seed=seed))
 
 class circular:
