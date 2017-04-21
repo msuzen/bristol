@@ -299,7 +299,7 @@ class circular:
          return({'local_seeds':local_seeds, 'c_eigen':c_eigen})
         if(parallel):
           wrap_f      = partial(_n_eigen_circular2, N=N, 
-                                size=cSize, ensemble='CUE',
+                                size=cSize, ensemble=ensemble,
                                 adir='lower', set_seed=True) 
           pool        = mp.Pool(processes=nchunks)
           rrp         = pool.map(wrap_f, seeds)
