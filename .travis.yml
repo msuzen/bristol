@@ -16,7 +16,6 @@ install:
   - export PYVER=${TRAVIS_PYTHON_VERSION:0:1}
   - pip install --upgrade coveralls
   - pip install numpy
-  - pip install multiprocessing
 
 script:
   - python setup.py build
