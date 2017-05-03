@@ -12,5 +12,7 @@ setup(
       author_email='suzen@acm.org',
       license= 'GPL-3',
       packages=['bristol'],
-      install_requires=['numpy', 'multiprocessing']
+      install_requires=['numpy'],
+      test_suite="test",
+      zip_safe=False
      )

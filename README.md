@@ -1,5 +1,8 @@
 # Bristol
 
+[![Build Status](https://travis-ci.org/msuzen/bristol.svg?branch=master)](https://travis-ci.org/msuzen/bristol)
+[![Coverage Status](https://coveralls.io/repos/github/msuzen/bristol/badge.svg?branch=master)](https://coveralls.io/github/msuzen/bristol?branch=master)
+
 Parallel Random Matrix tools.
 
 ## Features

@@ -53,6 +53,7 @@ class circular:
         if(adir == 'upper'):
            upper_ix = np.triu_indices(N)
            z[upper_ix]= -1*z[upper_ix]
+           np.fill_diagonal(z, 0)
         if(adir == 'lower'):
            lower_ix = np.tril_indices(N)
            z[lower_ix]= -1*z[lower_ix]    
