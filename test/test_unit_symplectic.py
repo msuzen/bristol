@@ -2,7 +2,7 @@ import unittest
 from bristol.ensembles import circular
 import numpy as np
 
-class unit_symplectic(unittest.TestCase):
+class test_unit_symplectic(unittest.TestCase):
 
       epsilon = 1e-9
 

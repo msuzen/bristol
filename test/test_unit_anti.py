@@ -1,7 +1,7 @@
 import unittest
 from bristol.ensembles import circular
 
-class unit_anti(unittest.TestCase):
+class test_unit_anti(unittest.TestCase):
 
       epsilon = 1e-9
 
