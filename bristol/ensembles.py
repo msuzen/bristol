@@ -8,7 +8,7 @@
 
 import numpy as np
 import multiprocessing as mp
-from builtins import range
+from future.builtins import range
 from functools import partial
 
 def _n_eigen_circular2(seed, N, size, ensemble='CUE', 
