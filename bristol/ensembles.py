@@ -9,6 +9,7 @@
 import numpy as np
 import multiprocessing as mp
 from future.builtins import range
+from builtins import map
 from functools import partial
 
 def _n_eigen_circular2(seed, N, size, ensemble='CUE', 
@@ -104,20 +105,29 @@ class circular:
         * M V Berry and Pragya Shukla, New Journal of Physics 15 (2013) 013026 
 
         Example:
-        
-        Hcue = gen_cue(10)
+         
+        from bristol.ensembles import circular
+        ce     = circular()
+        mseed  = 2963416
+        Hcue0  = ce.gen_cue(8, seed=mseed, set_seed=True)
+        Hcue1  = ce.gen_cue(8, seed=mseed, set_seed=True)    
+        n0     = float(np.imag(Hcue0[0,:].sum()))
+        n1     = float(np.real(Hcue1[6,:].sum()))
+        n0, n1
+
+                   
+    
         
         """
         if(set_seed):
            np.random.seed(seed)
-        f      = lambda n : map(lambda x: np.random.normal(), range(n))
-        f_uni = lambda n : map(lambda x: np.random.uniform(2*np.pi), range(n))
-        G      = map(lambda theta: np.cos(theta)+np.sin(theta)*1j, f_uni(N))
+        f_uni   = lambda n : list(map(lambda x: np.random.uniform(2*np.pi), list(range(n))))
+        G       = list(map(lambda theta: np.cos(theta)+np.sin(theta)*1j, f_uni(N)))
         A       = np.random.random((N,N))
         B       = np.random.random((N,N))
-        H      = 0.5 * (A+B*1j+np.transpose(A)-np.transpose(B)*1j)
-        E, U  = np.linalg.eig(H)
-        Hcue  = G * U
+        H       = 0.5 * (A+B*1j+np.transpose(A)-np.transpose(B)*1j)
+        E, U    = np.linalg.eig(H)
+        Hcue    = G * U
         return(Hcue)
 
     def gen_coe(self, N, set_seed=False, seed=42391):
