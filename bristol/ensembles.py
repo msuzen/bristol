@@ -116,8 +116,6 @@ class circular:
         n0, n1
 
                    
-    
-        
         """
         if(set_seed):
            np.random.seed(seed)
@@ -150,7 +148,15 @@ class circular:
 
         Example:
         
-        Hcoe = gen_coe(10)
+        
+        from bristol.ensembles import circular
+        ce     = circular()
+        mseed  = 2963416
+        Hcoe0  = ce.gen_coe(8, seed=mseed, set_seed=True)
+        Hcoe1  = ce.gen_coe(8, seed=mseed, set_seed=True)    
+        n0     = float(np.imag(Hcoe0[0,:].sum()))
+        n1     = float(np.real(Hcoe1[6,:].sum()))
+        n0, n1
         
        """
        Hcue = self.gen_cue(N,set_seed,seed)
@@ -177,7 +183,21 @@ class circular:
 
         Example:
         
-        Hcoe = gen_coe(10)
+        from bristol.ensembles import circular
+        ce     = circular()
+        mseed  = 2963416
+        Hcse0  = ce.gen_cse(8, seed=mseed, set_seed=True)
+        Hcse1  = ce.gen_cse(8, seed=mseed, set_seed=True)    
+        n0     = float(np.imag(Hcse0[0,:].sum()))
+        n1     = float(np.real(Hcse1[6,:].sum()))
+        n0, n1
+        
+        mseed  = 2963416
+        Hcse0  = ce.gen_cse(8, seed=mseed, set_seed=True, adir="upper")
+        Hcse1  = ce.gen_cse(8, seed=mseed, set_seed=True, adir="upper")    
+        n0     = float(np.imag(Hcse0[0,:].sum()))
+        n1     = float(np.real(Hcse1[6,:].sum()))
+        n0, n1
         
        """
        Z    = self.unit_symplectic(N, adir=adir)
@@ -185,7 +205,7 @@ class circular:
        return((Z*Hcue.transpose()*Z)*Hcue)
 
     def eigen_circular(self, N, ensemble='CUE', set_seed=False, 
-               seed=42391, adir='lower'):
+                       seed=42391, adir='lower'):
         """
 
            Generate eigenvalues of a matrix that is a realization from circular 
@@ -223,7 +243,7 @@ class circular:
         return(e)
 
     def _n_eigen_circular(self, N, size, ensemble='CUE', 
-                  adir='lower', set_seed=False, seed=9876):
+                          adir='lower', set_seed=False, seed=9876):
         """
 
         Compute eigenvalues of a given circular ensemble, 
@@ -259,8 +279,8 @@ class circular:
 
 
     def eigen_circular_ensemble(self, N, cSize=100, nchunks=4, 
-                    ensemble='CUE', adir='lower', 
-                    seeds=list(), parallel=True):
+                                ensemble='CUE', adir='lower', 
+                                seeds=list(), parallel=True):
         """
          
         Compute eigenvalues of given circular ensemble, in parallel or serial.
