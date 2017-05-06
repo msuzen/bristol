@@ -225,8 +225,15 @@ class circular:
          
 
            Example:
-           e_cue_5    = eigen(5)           # eigenvalues of 5x5 matrix from CUE 
-           e_cse_5    = eigen(5,ensemble='cse') #  eigenvalues of 5x5 matrix from CSE
+           from bristol.ensembles import circular
+           ce      = circular()
+           mseed   = 2963416    
+           e_cue   = ce.eigen_circular(5,  ensemble='CUE', set_seed=True, seed=mseed)
+           e_coe   = ce.eigen_circular(10, ensemble='COE', set_seed=True, seed=mseed)
+           e_cse   = ce.eigen_circular(15, ensemble='COE', set_seed=True, seed=mseed)
+           n_cue   = np.imag(e_cue).sum()
+           n_coe   = np.imag(e_coe).sum()
+           n_cse   = np.imag(e_cse).sum() 
 
         """
         if(not ensemble in ['CUE', 'COE', 'CSE']):
