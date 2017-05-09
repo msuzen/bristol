@@ -312,13 +312,22 @@ class circular:
         Example:
 
         Parallel and serial runs should produce the same result with the
-        same random seed
+        same random seed:
         
-        rr_serial = rm.eigen_circular_ensemble(100, cSize=4, nchunks=4, 
-                           seeds=[123,125,124,122], 
-                           parallel=False)
-        rr_paralel = rm.eigen_circular_ensemble(100, cSize=4, nchunks=4, 
-                            seeds=[123,125,124,122])
+        rr_serial = rm.eigen_circular_ensemble(
+                                               10, 
+                                               cSize=4, 
+                                               nchunks=4, 
+                                               seeds=[123,125,124,122], 
+                                               parallel=False
+                                              )
+        rr_paralel = rm.eigen_circular_ensemble(
+                                                10, 
+                                                cSize=4, 
+                                                nchunks=4, 
+                                                seeds=[123,125,124,122], 
+                                                parallel=True
+                                               )
         all(rr_serial['c_eigen'] == rr_paralel['c_eigen']) 
 
 
