@@ -12,7 +12,7 @@ setup(
       author_email='suzen@acm.org',
       license= 'GPL-3',
       packages=['bristol'],
-      install_requires=['numpy', 'future'],
+      install_requires=['numpy >= 1.12', 'future >= 0.16.0'],
       test_suite="test",
       zip_safe=False
      )
