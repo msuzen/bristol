@@ -278,11 +278,8 @@ class circular:
         if(set_seed):
            np.random.seed(seed)
            local_seed = seed
-        c_eigen = np.empty(0)
-        for i in range(size):
-           e = self.eigen_circular(N, ensemble=ensemble, set_seed=set_seed, 
-                                   seed=local_seed, adir=adir)
-           c_eigen = np.append(c_eigen, e)
+        c_eigen = np.array([self.eigen_circular(N, ensemble=ensemble, set_seed=set_seed,
+                                   seed=local_seed, adir=adir) for i in range(size)])
         return({'local_seed':local_seed, 'c_eigen':c_eigen})
 
 
