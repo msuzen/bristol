@@ -1,5 +1,5 @@
 import unittest
-from bristol.ensembles import circular
+from bristol.ensembles import Circular
 import numpy as np
 
 class test_gen_cue(unittest.TestCase):
@@ -8,7 +8,7 @@ class test_gen_cue(unittest.TestCase):
 
       def test_gen_cue_01(self):
            N     = 8
-           ce    = circular()
+           ce    = Circular()
            mseed = 2963416
            Hcue0 = ce.gen_cue(8, seed=mseed, set_seed=True)
            Hcue1 = ce.gen_cue(8, seed=mseed, set_seed=True)    

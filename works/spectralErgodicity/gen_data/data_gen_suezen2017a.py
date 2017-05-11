@@ -33,8 +33,8 @@ def toc():
 #
 import os
 import pickle
-from bristol.ensembles import circular
-ce = circular()
+from bristol.ensembles import Circular
+ce = Circular()
 # seed for 4 cpu cores (or chunks if not parallel)
 seed_v   = [997123,1091645,1352,32718]
 data_cue = {}
