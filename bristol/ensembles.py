@@ -17,6 +17,8 @@ def _n_eigen_circular2(seed, N, size, ensemble='CUE',
         """
         This is a wrapper for _n_eigen_circular, so `seed` comes
         as first argument.
+        
+        Author: M.Suzen
 
         """
         ce = Circular()
@@ -27,7 +29,7 @@ def _n_eigen_circular2(seed, N, size, ensemble='CUE',
 class Circular:
 
     def __init__(self):
-        print("") # <- is this needed?
+       pass
 
     def unit_anti(self, N=2, adir='lower'):
         """
@@ -45,8 +47,8 @@ class Circular:
         z      Antisymmetric unit matrix, NxN ndarray
         
         Example:
-        from bristol.ensembles import circular
-        ce = circular()
+        from bristol.ensembles import Circular
+        ce = Circular()
         z = ce.unit_anti()         # Generates 2x2, lower anti-symmetric.
         z = ce.unit_anti(adir='upper')  # upper anti-symmetric
         
@@ -77,8 +79,8 @@ class Circular:
         2Nx2N unit symplectic matrix
         
         Example:
-        from bristol.ensembles import circular
-        ce = circular()
+        from bristol.ensembles import Circular
+        ce = Circular()
         z  = ce.unit_symplectic(4)         # Generates 8x8 unit symplectic, upper anti-symmetric.
         z  = ce.unit_symplectic(4,adir='upper')  # upper anti-symmetric
         
@@ -107,8 +109,8 @@ class Circular:
 
         Example:
          
-        from bristol.ensembles import circular
-        ce     = circular()
+        from bristol.ensembles import Circular
+        ce     = Circular()
         mseed  = 2963416
         Hcue0  = ce.gen_cue(8, seed=mseed, set_seed=True)
         Hcue1  = ce.gen_cue(8, seed=mseed, set_seed=True)    
@@ -150,8 +152,8 @@ class Circular:
         Example:
 
 
-        from bristol.ensembles import circular
-        ce     = circular()
+        from bristol.ensembles import Circular
+        ce     = Circular()
         mseed  = 2963416
         Hcoe0  = ce.gen_coe(8, seed=mseed, set_seed=True)
         Hcoe1  = ce.gen_coe(8, seed=mseed, set_seed=True)
@@ -184,8 +186,8 @@ class Circular:
 
         Example:
 
-        from bristol.ensembles import circular
-        ce     = circular()
+        from bristol.ensembles import Circular
+        ce     = Circular()
         mseed  = 2963416
         Hcse0  = ce.gen_cse(8, seed=mseed, set_seed=True)
         Hcse1  = ce.gen_cse(8, seed=mseed, set_seed=True)
@@ -226,8 +228,8 @@ class Circular:
          
 
            Example:
-           from bristol.ensembles import circular
-           ce      = circular()
+           from bristol.ensembles import Circular
+           ce      = Circular()
            mseed   = 2963416    
            e_cue   = ce.eigen_circular(5,  ensemble='CUE', set_seed=True, seed=mseed)
            e_coe   = ce.eigen_circular(10, ensemble='COE', set_seed=True, seed=mseed)
@@ -258,8 +260,10 @@ class Circular:
         by generating `size` number of matrices. A choice
         of seed is generated if set_seed is False.
 
+        Author: M.Suzen, C.Garbers
+        
         params:
-        N           Size of the rectangular matrix, NxN.
+        N          Size of the rectangular matrix, NxN.
         size       Number of random matrices to generate.
         ensemble   One of the circular ensemble 'CUE', 'COE', 'CSE'
         set_seed   Option to pass seed, defaults to False, no seed set.
@@ -312,18 +316,21 @@ class Circular:
         Parallel and serial runs should produce the same result with the
         same random seed:
         
-        rr_serial = rm.eigen_circular_ensemble(
+        from bristol.ensembles import Circular
+        ce        = Circular()
+        mseed     = [123,125,124,122]       
+        rr_serial = ce.eigen_circular_ensemble(
                                                10, 
                                                cSize=4, 
                                                nchunks=4, 
-                                               seeds=[123,125,124,122], 
+                                               seeds=mseed, 
                                                parallel=False
                                               )
-        rr_paralel = rm.eigen_circular_ensemble(
+        rr_paralel = ce.eigen_circular_ensemble(
                                                 10, 
                                                 cSize=4, 
                                                 nchunks=4, 
-                                                seeds=[123,125,124,122], 
+                                                seeds=mseed, 
                                                 parallel=True
                                                )
         all(rr_serial['c_eigen'] == rr_paralel['c_eigen']) 
