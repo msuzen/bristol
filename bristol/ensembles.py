@@ -92,6 +92,7 @@ class Circular:
         Generate random matrix Circular Unitary Ensemble (CUE)
 
         Author: M.Suzen
+        Author: Christian Garbers
         
         params:
         N          Size of rectangular array NxN.
@@ -119,7 +120,7 @@ class Circular:
         """
         if set_seed:
             np.random.seed(seed)
-        f_uni   = lambda n: list(map(lambda x: np.random.uniform(2*np.pi), list(range(n))))
+        f_uni   = lambda n: list(np.random.uniform(0, np.pi *2, n))
         G       = list(map(lambda theta: np.cos(theta)+np.sin(theta)*1j, f_uni(N)))
         A       = np.random.random((N, N))
         B       = np.random.random((N, N))
