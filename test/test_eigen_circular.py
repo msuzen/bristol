@@ -15,6 +15,6 @@ class test_eigen_circular(unittest.TestCase):
           n_cue   = np.imag(e_cue).sum()
           n_coe   = np.imag(e_coe).sum()
           n_cse   = np.imag(e_cse).sum()
-          self.assertTrue(n_cue-1.198459165065781 < self.epsilon)
-          self.assertTrue(n_coe+0.068033777217730 < self.epsilon)
+          self.assertTrue(n_cue+0.702464040915249 < self.epsilon)
+          self.assertTrue(n_coe-0.023881520674723 < self.epsilon)
           self.assertTrue(np.abs(n_cse) < self.epsilon)

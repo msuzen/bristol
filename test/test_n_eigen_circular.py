@@ -45,8 +45,8 @@ class test_n_eigen_circular(unittest.TestCase):
           n_cue   = np.imag(e_cue['c_eigen']).sum()
           n_coe   = np.imag(e_coe['c_eigen']).sum()
           n_cse   = np.imag(e_cse['c_eigen']).sum()
-          self.assertTrue(n_cue-1.198459165065781 < self.epsilon)
-          self.assertTrue(n_coe+0.068033777217730 < self.epsilon)
+          self.assertTrue(n_cue-0.70246404091524939 < self.epsilon)
+          self.assertTrue(n_coe-0.02388152067472389 < self.epsilon)
           self.assertTrue(np.abs(n_cse)< self.epsilon)
           
           
@@ -77,6 +77,6 @@ class test_n_eigen_circular(unittest.TestCase):
           n_cue   = np.imag(e_cue['c_eigen']).sum()
           n_coe   = np.imag(e_coe['c_eigen']).sum()
           n_cse   = np.imag(e_cse['c_eigen']).sum()
-          self.assertTrue(n_cue-3.595377495197345 < self.epsilon)
-          self.assertTrue(n_coe+0.204101331653192 < self.epsilon)
+          self.assertTrue(n_cue+2.1073921227457482 < self.epsilon)
+          self.assertTrue(n_coe-0.0716445620241715 < self.epsilon)
           self.assertTrue(np.abs(n_cse) < self.epsilon)   

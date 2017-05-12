@@ -42,7 +42,8 @@ class Ergodicity:
            A density in two dimensional numpy array, with bin centres in the 
            first column and the density in the second column.
     
-          Example: 
+          Example:
+              
             import numpy as np
             from bristol.ensembles import Circular
             ce            = Circular()
@@ -53,7 +54,8 @@ class Ergodicity:
             e_cue         = ce.eigen_circular(
                                               N=N,
                                               ensemble='CUE', 
-                                              set_seed=True
+                                              set_seed=True,
+                                              seed=mseed
                                              )    
             from bristol.spectral import Ergodicity
             ergo     = Ergodicity()
@@ -108,7 +110,7 @@ class Ergodicity:
             cSize         = 2
             nchunks       = 5
             ensemble_size = cSize*nchunks
-            eseeds         = [978712, 34687, 43124, 67831, 1234]
+            eseeds        = [978712, 34687, 43124, 67831, 1234]
             e_cue         = ce.eigen_circular_ensemble(
                                                        N=N,
                                                        ensemble='CUE', 
@@ -188,45 +190,47 @@ class Ergodicity:
          
          Example:
          
-        import numpy as np     
-        from bristol.ensembles import Circular
-        ce         = Circular()
-        mseed      = [123,125,124]       
-        Ns         = [5, 10, 15]
-        eigen_data5 = ce.eigen_circular_ensemble(
-                                                 Ns[0], 
-                                                 cSize=2, 
-                                                 nchunks=3, 
-                                                 seeds=mseed, 
-                                                 parallel=False
-                                                )
-        eigen_data10 = ce.eigen_circular_ensemble(
-                                                  Ns[1], 
-                                                  cSize=2, 
-                                                  nchunks=3, 
-                                                  seeds=mseed, 
-                                                  parallel=False
-                                                 )
-        eigen_data15 = ce.eigen_circular_ensemble(
-                                                  Ns[2], 
-                                                  cSize=2, 
-                                                  nchunks=3, 
-                                                  seeds=mseed, 
-                                                  parallel=False
-                                                 )
-        ensemble_size = cSize*nchunks 
-        eigen_data = {
-                      "N5":eigen_data5, 
-                      "N10":eigen_data10, 
-                      "N15":eigen_data15
-                     }
-             
-        Dse = Circular.approach_se(
-                                   Ns,
-                                   ensemble_size, 
-                                   eigen_data,
-                                   
-                                  )
+          import numpy as np     
+          from bristol.ensembles import Circular
+          ce         = Circular()
+          mseed      = [123,125,124]       
+          Ns         = [5, 10, 15]
+          cSize      = 2
+          nChunks    = 3
+          eigen_data5 = ce.eigen_circular_ensemble(
+                                                   Ns[0], 
+                                                   cSize=cSize, 
+                                                   nchunks=nChunks, 
+                                                   seeds=mseed, 
+                                                   parallel=False
+                                                  )
+         eigen_data10 = ce.eigen_circular_ensemble(
+                                                   Ns[1], 
+                                                   cSize=cSize, 
+                                                   nchunks=nChunks, 
+                                                   seeds=mseed, 
+                                                   parallel=False
+                                                  )
+         eigen_data15 = ce.eigen_circular_ensemble(
+                                                   Ns[2], 
+                                                   cSize=cSize, 
+                                                   nchunks=nChunks, 
+                                                   seeds=mseed, 
+                                                   parallel=False
+                                                  )
+         ensemble_size = cSize*nChunks 
+         eigen_data = {
+                       "N5":eigen_data5, 
+                       "N10":eigen_data10,
+                       "N15":eigen_data15
+                      }
+         from bristol.spectral import Ergodicity
+         ergo = Ergodicity()
+         Dse  = ergo.approach_se(
+                                 Ns=Ns,
+                                 ensemble_size=ensemble_size, 
+                                 eigen_data=eigen_data 
+                                )
         
         """
         Dse=[]
