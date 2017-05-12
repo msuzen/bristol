@@ -12,23 +12,24 @@ from future.builtins import range
 from builtins import map
 from functools import partial
 
-def _n_eigen_circular2(seed, N, size, ensemble='CUE', 
+def _n_eigen_circular2(seed, N, size, ensemble='CUE',
                        adir='lower', set_seed=False):
         """
         This is a wrapper for _n_eigen_circular, so `seed` comes
         as first argument.
 
         """
-        ce = circular()
-        return(ce._n_eigen_circular(N, size, ensemble=ensemble, 
+        ce = Circular()
+        return(ce._n_eigen_circular(N, size, ensemble=ensemble,
                      adir='lower', set_seed=set_seed, seed=seed))
 
-class circular:
+
+class Circular:
 
     def __init__(self):
-        print("")
- 
-    def unit_anti(self,N=2, adir='lower'):
+        print("") # <- is this needed?
+
+    def unit_anti(self, N=2, adir='lower'):
         """
         
         Generate antisymmetric unit matrix of size NxN.
@@ -51,15 +52,15 @@ class circular:
         
         """
         z = np.ones([N, N])
-        if(adir == 'upper'):
-           upper_ix = np.triu_indices(N)
-           z[upper_ix]= -1*z[upper_ix]
-           np.fill_diagonal(z, 0)
-        if(adir == 'lower'):
-           lower_ix = np.tril_indices(N)
-           z[lower_ix]= -1*z[lower_ix]    
-           np.fill_diagonal(z, 0)
-        return(z)
+        if adir == 'upper':
+            upper_ix = np.triu_indices(N)
+            z[upper_ix] = -1*z[upper_ix]
+            np.fill_diagonal(z, 0)
+        if adir == 'lower':
+            lower_ix = np.tril_indices(N)
+            z[lower_ix]= -1*z[lower_ix]
+            np.fill_diagonal(z, 0)
+        return z
 
     def unit_symplectic(self, N, adir='lower'):
         """
@@ -83,8 +84,7 @@ class circular:
         
         """
         z = self.unit_anti(2, adir=adir)
-        return(np.kron(np.eye(N), z).astype(int)) 
-
+        return np.kron(np.eye(N), z).astype(int)
 
     def gen_cue(self, N, set_seed=False, seed=42391):
         """
@@ -117,24 +117,24 @@ class circular:
 
                    
         """
-        if(set_seed):
-           np.random.seed(seed)
-        f_uni   = lambda n : list(map(lambda x: np.random.uniform(2*np.pi), list(range(n))))
+        if set_seed:
+            np.random.seed(seed)
+        f_uni   = lambda n: list(map(lambda x: np.random.uniform(2*np.pi), list(range(n))))
         G       = list(map(lambda theta: np.cos(theta)+np.sin(theta)*1j, f_uni(N)))
-        A       = np.random.random((N,N))
-        B       = np.random.random((N,N))
+        A       = np.random.random((N, N))
+        B       = np.random.random((N, N))
         H       = 0.5 * (A+B*1j+np.transpose(A)-np.transpose(B)*1j)
         E, U    = np.linalg.eig(H)
         Hcue    = G * U
-        return(Hcue)
+        return Hcue
 
     def gen_coe(self, N, set_seed=False, seed=42391):
        """
-        
+
         Generate random matrix Circular Orthogonal Ensemble (COE)
 
         Author: M.Suzen
-        
+
         params:
         N          Size of rectangular array NxN.
         set_seed  Option to pass seed, defaults to False, no seed set.
@@ -142,33 +142,33 @@ class circular:
 
         output:
         NxN matrix in  Circular Orthogonal Ensemble (COE)
-       
+
         References:
-        * M V Berry and Pragya Shukla, New Journal of Physics 15 (2013) 013026 
+        * M V Berry and Pragya Shukla, New Journal of Physics 15 (2013) 013026
 
         Example:
-        
-        
+
+
         from bristol.ensembles import circular
         ce     = circular()
         mseed  = 2963416
         Hcoe0  = ce.gen_coe(8, seed=mseed, set_seed=True)
-        Hcoe1  = ce.gen_coe(8, seed=mseed, set_seed=True)    
+        Hcoe1  = ce.gen_coe(8, seed=mseed, set_seed=True)
         n0     = float(np.imag(Hcoe0[0,:].sum()))
         n1     = float(np.real(Hcoe1[6,:].sum()))
         n0, n1
-        
+
        """
        Hcue = self.gen_cue(N,set_seed,seed)
-       return(Hcue.transpose()*Hcue)
+       return Hcue.transpose()*Hcue
 
     def gen_cse(self, N, set_seed=False, seed=42391, adir='lower'):
        """
-        
+
         Generate random matrix Circular Symplectic Ensemble (CSE)
 
         Author: M.Suzen
-        
+
         params:
         N          Size of rectangular array NxN.
         set_seed  Option to pass seed, defaults to False, no seed set.
@@ -177,34 +177,34 @@ class circular:
 
         output:
         NxN matrix in  Circular Symlectic Ensemble (CSE)
-       
+
         References:
-        * M V Berry and Pragya Shukla, New Journal of Physics 15 (2013) 013026 
+        * M V Berry and Pragya Shukla, New Journal of Physics 15 (2013) 013026
 
         Example:
-        
+
         from bristol.ensembles import circular
         ce     = circular()
         mseed  = 2963416
         Hcse0  = ce.gen_cse(8, seed=mseed, set_seed=True)
-        Hcse1  = ce.gen_cse(8, seed=mseed, set_seed=True)    
+        Hcse1  = ce.gen_cse(8, seed=mseed, set_seed=True)
         n0     = float(np.imag(Hcse0[0,:].sum()))
         n1     = float(np.real(Hcse1[6,:].sum()))
         n0, n1
-        
+
         mseed  = 2963416
         Hcse0  = ce.gen_cse(8, seed=mseed, set_seed=True, adir="upper")
-        Hcse1  = ce.gen_cse(8, seed=mseed, set_seed=True, adir="upper")    
+        Hcse1  = ce.gen_cse(8, seed=mseed, set_seed=True, adir="upper")
         n0     = float(np.imag(Hcse0[0,:].sum()))
         n1     = float(np.real(Hcse1[6,:].sum()))
         n0, n1
-        
+
        """
        Z    = self.unit_symplectic(N, adir=adir)
        Hcue = self.gen_cue(2*N,set_seed,seed)
-       return((Z*Hcue.transpose()*Z)*Hcue)
+       return (Z*Hcue.transpose()*Z)*Hcue
 
-    def eigen_circular(self, N, ensemble='CUE', set_seed=False, 
+    def eigen_circular(self, N, ensemble='CUE', set_seed=False,
                        seed=42391, adir='lower'):
         """
 
@@ -240,16 +240,16 @@ class circular:
             raise Exception("Circular ensemble of \
                      CUE, COE or CSE must \
                      be selected.")
-        if(ensemble == 'CUE'):
+        if ensemble == 'CUE':
             H     = self.gen_cue(N,seed=seed,set_seed=set_seed)
-        if(ensemble == 'COE'):
+        elif ensemble == 'COE':
             H     = self.gen_coe(N,seed=seed,set_seed=set_seed)
-        if(ensemble == 'CSE'):
+        elif ensemble == 'CSE':
             H     = self.gen_cse(N,seed=seed,set_seed=set_seed,adir=adir)
         e, u = np.linalg.eig(H)
         return(e)
 
-    def _n_eigen_circular(self, N, size, ensemble='CUE', 
+    def _n_eigen_circular(self, N, size, ensemble='CUE',
                           adir='lower', set_seed=False, seed=9876):
         """
 
@@ -275,19 +275,16 @@ class circular:
         """
         local_seed = np.random.choice(1000000, 1)
         np.random.seed(local_seed[0])
-        if(set_seed):
+        if set_seed:
            np.random.seed(seed)
            local_seed = seed
-        c_eigen = np.empty(0)
-        for i in range(size):
-           e = self.eigen_circular(N, ensemble=ensemble, set_seed=set_seed, 
-                                   seed=local_seed, adir=adir)
-           c_eigen = np.append(c_eigen, e)
-        return({'local_seed':local_seed, 'c_eigen':c_eigen})
+        c_eigen = np.array([self.eigen_circular(N, ensemble=ensemble, set_seed=set_seed,
+                                   seed=local_seed, adir=adir) for i in range(size)])
+        return {'local_seed':local_seed, 'c_eigen':c_eigen}
 
 
-    def eigen_circular_ensemble(self, N, cSize=100, nchunks=4, 
-                                ensemble='CUE', adir='lower', 
+    def eigen_circular_ensemble(self, N, cSize=100, nchunks=4,
+                                ensemble='CUE', adir='lower',
                                 seeds=list(), parallel=True):
         """
          
@@ -332,23 +329,23 @@ class circular:
 
 
         """
-        if(len(seeds) != nchunks):
+        if len(seeds) != nchunks:
           raise Exception("Seeds vector must be provided for each chunk")
         if(not parallel):
          local_seeds = []
          c_eigen     = np.empty(0)
          for i in range(nchunks):
              res = {}
-             res = self._n_eigen_circular(N=N, size=cSize, ensemble=ensemble, 
-                         adir='lower', set_seed=True, 
+             res = self._n_eigen_circular(N=N, size=cSize, ensemble=ensemble,
+                         adir='lower', set_seed=True,
                          seed=seeds[i])
              local_seeds.append(res['local_seed'])
              c_eigen = np.append(c_eigen, res['c_eigen'])
          return({'local_seeds':local_seeds, 'c_eigen':c_eigen})
-        if(parallel):
-          wrap_f      = partial(_n_eigen_circular2, N=N, 
+        if parallel:
+          wrap_f      = partial(_n_eigen_circular2, N=N,
                                 size=cSize, ensemble=ensemble,
-                                adir='lower', set_seed=True) 
+                                adir='lower', set_seed=True)
           pool        = mp.Pool(processes=nchunks)
           rrp         = pool.map(wrap_f, seeds)
           pool.close()
@@ -358,6 +355,6 @@ class circular:
           for j in range(nchunks):
              local_seeds.append(rrp[j]['local_seed'])
              c_eigen = np.append(c_eigen, rrp[j]['c_eigen'])
-          return({'local_seeds':local_seeds, 'c_eigen':c_eigen, 
-              'matrix_size':N, 'number_of_matrices':nchunks*cSize})
+          return {'local_seeds':local_seeds, 'c_eigen':c_eigen,
+              'matrix_size':N, 'number_of_matrices':nchunks*cSize}
 

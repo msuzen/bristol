@@ -1,5 +1,5 @@
 import unittest
-from bristol.ensembles import circular
+from bristol.ensembles import Circular
 import numpy as np
 
 class test_eigen_circular(unittest.TestCase):
@@ -7,7 +7,7 @@ class test_eigen_circular(unittest.TestCase):
       epsilon = 1e-9
 
       def test_eigen_circular_01(self):
-          ce      = circular()
+          ce      = Circular()
           mseed   = 2963416
           e_cue   = ce.eigen_circular(5,  ensemble='CUE', set_seed=True, seed=mseed)  
           e_coe   = ce.eigen_circular(10, ensemble='COE', set_seed=True, seed=mseed)  

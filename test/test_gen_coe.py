@@ -1,5 +1,5 @@
 import unittest
-from bristol.ensembles import circular
+from bristol.ensembles import Circular
 import numpy as np
 
 class test_gen_coe(unittest.TestCase):
@@ -8,7 +8,7 @@ class test_gen_coe(unittest.TestCase):
 
       def test_gen_coe_01(self):
           N     = 8
-          ce    = circular()
+          ce    = Circular()
           mseed = 2963416
           Hcoe0 = ce.gen_coe(8, seed=mseed, set_seed=True)
           Hcoe1 = ce.gen_coe(8, seed=mseed, set_seed=True)

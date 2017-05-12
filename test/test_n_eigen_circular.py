@@ -11,7 +11,7 @@ Created on Tue May  9 11:11:15 2017
 """
 
 import unittest
-from bristol.ensembles import circular
+from bristol.ensembles import Circular
 import numpy as np
 
 class test_n_eigen_circular(unittest.TestCase):
@@ -20,7 +20,7 @@ class test_n_eigen_circular(unittest.TestCase):
 
       def test_n_eigen_circular_01(self):
           mseed   = 2963416
-          ce      = circular()
+          ce      = Circular()
           e_cue   = ce._n_eigen_circular(
                                          seed=mseed, 
                                          N=5,
@@ -52,7 +52,7 @@ class test_n_eigen_circular(unittest.TestCase):
           
       def test_n_eigen_circular_02(self):
           mseed   = 2963416
-          ce      = circular()
+          ce      = Circular()
           e_cue   = ce._n_eigen_circular(
                                          seed=mseed, 
                                          N=5,
