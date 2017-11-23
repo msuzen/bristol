@@ -12,7 +12,9 @@ Bristol implements techniques developed by Mezzadri with parallel processing cap
 ## Features
 
 * Generation of Circular Ensembles: CUE, COE and CSE.
-* Random sequence reproducability for parallel processing.
+* Random matrices: Reproducibility both in serial and parallel processing.
+* Eigenvalue Spectra, spectral densitiy.
+* Kullbach-Leibler divergence and spectral ergodicity measure functionality.
 
 ## Installation
 
