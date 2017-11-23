@@ -7,6 +7,8 @@
 
 Parallel Random Matrix tools.
 
+Bristol implements techniques developed by Mezzadri with parallel processing capabilities and a data model for further processing for generating random matrices. Circular module provides methods to generate matrices from Circular Unitary Ensemble (CUE), Circular Ortogonal Ensemble (COE) and Circular Symplectic Ensemble (CSE). Additional spectral analysis utilities are also implemented, such as computation of spectral density and spectral ergodicity.
+
 ## Features
 
 * Generation of Circular Ensembles: CUE, COE and CSE.
