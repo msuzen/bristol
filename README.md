@@ -43,6 +43,3 @@ pip install -upgrade git+https://github.com/msuzen/bristol.git
 
 # Related publications/manuscripts
 * Spectral Ergodicity in Deep Learning Architectures via Surrogate Random Matrices, Mehmet Süzen, Cornelius Weber, Joan J. Cerdà, [arXiv:1704.08693](https://arxiv.org/abs/1704.08303)
-
-# Other builds
-[![Related Build Status](https://travis-ci.org/cgars/bristol.svg?branch=master)](https://travis-ci.org/cgars/bristol)
