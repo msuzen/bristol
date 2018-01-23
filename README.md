@@ -31,15 +31,18 @@ pip install -upgrade git+https://github.com/msuzen/bristol.git
 ```
 
 ## Documentation
-* Under development
+
+* Basics of circular ensembles [ipynb](https://github.com/msuzen/bristol/blob/master/works/spectralErgodicity/01_generating_circular_ensembles_notes.ipynb). 
+
+* Computing spectral ergodicity for generated matrices [ipynb](https://github.com/msuzen/bristol/blob/master/works/spectralErgodicity/01_generating_circular_ensembles_notes.ipynb). This is to reproduce the main figure from [arXiv:1704.08693](https://arxiv.org/abs/1704.08303).
+ 
 
 ## Contact
-* Please create an issue for any questions.
+
+* Please create an issue for any type of questions or contact `msuzen`.
 
 ## References
 
-* M V Berry and Pragya Shukla, New Journal of Physics 15 (2013) 013026 
+* Berry, M V & Pragya Shukla 2013, Hearing random matrices and random waves, New. J. Phys. 15 013026 (11pp) [berry456](https://michaelberryphysics.files.wordpress.com/2013/06/berry456.zip)
 
-
-# Related publications/manuscripts
 * Spectral Ergodicity in Deep Learning Architectures via Surrogate Random Matrices, Mehmet Süzen, Cornelius Weber, Joan J. Cerdà, [arXiv:1704.08693](https://arxiv.org/abs/1704.08303)
