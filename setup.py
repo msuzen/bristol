@@ -3,6 +3,9 @@ from setuptools import setup
 fp = open('./bristol/version.py')
 exec(fp.read())
 
+with open('README.md') as f:
+    long_description = f.read()
+
 setup(
       name='bristol',
       version=__version__,
