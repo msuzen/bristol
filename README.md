@@ -4,6 +4,7 @@
 [![Coverage Status](https://coveralls.io/repos/github/msuzen/bristol/badge.svg?branch=master)](https://coveralls.io/github/msuzen/bristol?branch=master) 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.579642.svg)](https://doi.org/10.5281/zenodo.579642)
 [![PyPI version](https://img.shields.io/pypi/v/bristol.svg?maxAge=2591000)](https://pypi.org/project/bristol/)
+[![Downloads](http://pepy.tech/badge/bristol)](http://pepy.tech/count/bristol)
 
 Parallel Random Matrix tools.
 
