@@ -47,3 +47,19 @@ pip install -upgrade git+https://github.com/msuzen/bristol.git
 * Berry, M V & Pragya Shukla 2013, Hearing random matrices and random waves, New. J. Phys. 15 013026 (11pp) [berry456](https://michaelberryphysics.files.wordpress.com/2013/06/berry456.zip)
 
 * Spectral Ergodicity in Deep Learning Architectures via Surrogate Random Matrices, Mehmet Süzen, Cornelius Weber, Joan J. Cerdà, [arXiv:1704.08693](https://arxiv.org/abs/1704.08303)
+
+## Citation
+
+If you use the ideas from this package please do cite as follows 
+
+```
+@article{suezen2017a,
+    title={Spectral Ergodicity in Deep Learning Architectures via Surrogate Random Matrices},
+    author={Mehmet Süzen and Cornelius Weber and Joan J. Cerdà},
+    year={2017},
+    eprint={1704.08303},
+    archivePrefix={arXiv},
+    primaryClass={stat.ML}
+}
+
+```
