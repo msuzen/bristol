@@ -7,21 +7,15 @@
 
 """
 
-
 from future.builtins import range
 import numpy as np
 
+
 class Ergodicity:
-
     def __init__(self):
-        pass   
+        pass
 
-    def spectral_density(self,
-                         c_eigen, 
-                         ensemble_size, 
-                         N, 
-                         delta_rad=0.2
-                        ):
+    def spectral_density(self, c_eigen, ensemble_size, N, delta_rad=0.2):
         """
              
            Compute spectral density
@@ -36,7 +30,7 @@ class Ergodicity:
            ensemble_size  number of ensembles used, this is used to 
                           scale the resulting spectrum.
            delta_rad      spacing to use in getting the density, 
-                          defaults to 0.2 radians.
+                          defaults to 0.2 radians. Used only for complex
     
            Output
            A density in two dimensional numpy array, with bin centres in the 
@@ -62,19 +56,31 @@ class Ergodicity:
             sdensity = ergo.spectral_density(e_cue, ensemble_size, N)
     
         """
-        b_ks         = np.arange(-np.pi,np.pi, delta_rad) # bin edges
-        b_ks_centres = b_ks[1:]-delta_rad/2.0# bin centres
-        rho_ensemble = np.histogram(np.angle(c_eigen), bins=b_ks)
-        return(np.column_stack((b_ks_centres, rho_ensemble[0]/float(ensemble_size))))
+        is_C = True
+        try:
+            sum_c = sum([np.abs(c.imag) for c in c_eigen])
+            if (sum_c < 1e-9):
+                is_C = False
+        except:
+            pass
+        if (is_C):
+            b_ks = np.arange(-np.pi, np.pi, delta_rad)  # bin edges
+            b_ks_centres = b_ks[1:] - delta_rad / 2.0  # bin centres
+            rho_ensemble = np.histogram(np.angle(c_eigen), bins=b_ks)
+            den = np.column_stack(
+                (b_ks_centres, rho_ensemble[0] / float(ensemble_size)))
+        if (not is_C):
+            hist_v, bin_edge = np.histogram(c_eigen)
+            bin_centre = bin_edge[:-1] + (bin_edge[1] - bin_edge[0]) / 2.0
+            den = np.column_stack((bin_centre, hist_v / float(ensemble_size)))
 
+        return den
 
-    def thirumalai_mountain(
-                            self,
-                            c_eigen_ensemble, 
-                            ensemble_size, 
+    def thirumalai_mountain(self,
+                            c_eigen_ensemble,
+                            ensemble_size,
                             N,
-                            delta_rad=0.2
-                           ):
+                            delta_rad=0.2):
         """
          
          Compute TM metric for given set of eigenvalues e_i.
@@ -128,15 +134,17 @@ class Ergodicity:
                                                )
     
         """
-        sden_ensemble = self.spectral_density(c_eigen_ensemble, ensemble_size, 
+        sden_ensemble = self.spectral_density(c_eigen_ensemble, ensemble_size,
                                               N, delta_rad)
-        omega         = np.zeros(sden_ensemble.shape[0])
+        omega = np.zeros(sden_ensemble.shape[0])
         for i in range(ensemble_size):
-            ix        = np.arange(0,N)+N*i
-            sden_spec = self.spectral_density(c_eigen_ensemble[ix], 1, N, delta_rad)
-            omega     = np.power((sden_spec[:,1]-sden_ensemble[:,1]),2)+omega
-        return omega/ensemble_size/N
-    
+            ix = np.arange(0, N) + N * i
+            sden_spec = self.spectral_density(c_eigen_ensemble[ix], 1, N,
+                                              delta_rad)
+            omega = np.power(
+                (sden_spec[:, 1] - sden_ensemble[:, 1]), 2) + omega
+        return omega / ensemble_size / N
+
     def kl_distance_symmetric(self, Nk, Nk_minus, shift=1e-9):
         """
     
@@ -164,10 +172,11 @@ class Ergodicity:
             ergo.kl_distance_symmetric(Nk,Nk_minus)
     
         """
-        KL_k       = np.sum(Nk * np.log2((Nk+shift)/(Nk_minus+shift)))
-        KL_k_minus = np.sum(Nk_minus * np.log2((Nk_minus+shift)/(Nk+shift)))
-        return((KL_k+KL_k_minus))
-    
+        KL_k = np.sum(Nk * np.log2((Nk + shift) / (Nk_minus + shift)))
+        KL_k_minus = np.sum(Nk_minus * np.log2(
+            (Nk_minus + shift) / (Nk + shift)))
+        return ((KL_k + KL_k_minus))
+
     def approach_se(self, Ns, ensemble_size, eigen_data, delta_rad=0.2):
         """
      
@@ -233,17 +242,14 @@ class Ergodicity:
                                 )
         
         """
-        Dse=[]
-        for i in range(1,len(Ns)):
-           c_eigen_ensemble       = eigen_data["N"+str(Ns[i])]['c_eigen']
-           Nk = self.thirumalai_mountain(
-                                         c_eigen_ensemble, 
-                                         ensemble_size, 
-                                         Ns[i], delta_rad
-                                        )
-           c_eigen  = eigen_data['N' + str(Ns[i-1])]['c_eigen'] # All eigenvalues
-           Nk_minus = self.thirumalai_mountain(c_eigen, ensemble_size, Ns[i-1], delta_rad)
-           Dse.append(self.kl_distance_symmetric(Nk, Nk_minus))
-        return(Dse)
-
-        
+        Dse = []
+        for i in range(1, len(Ns)):
+            c_eigen_ensemble = eigen_data["N" + str(Ns[i])]['c_eigen']
+            Nk = self.thirumalai_mountain(c_eigen_ensemble, ensemble_size,
+                                          Ns[i], delta_rad)
+            c_eigen = eigen_data['N' +
+                                 str(Ns[i - 1])]['c_eigen']  # All eigenvalues
+            Nk_minus = self.thirumalai_mountain(c_eigen, ensemble_size,
+                                                Ns[i - 1], delta_rad)
+            Dse.append(self.kl_distance_symmetric(Nk, Nk_minus))
+        return (Dse)
