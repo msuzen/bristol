@@ -10,8 +10,6 @@
 
 import numpy as np
 import sys
-import matplotlib
-import matplotlib.pyplot as plt
 import bristol
 from bristol.spectral import Ergodicity
 import json
@@ -145,5 +143,23 @@ def d_layers_pse(eset_per):
         dl = ergo.kl_distance_symmetric(omega_l, omega_l1)
         D_layer.append(dl)
     return D_layer
+
+
+def cpse_measure(pmodel):
+    """
+    Given torch model object pmodel return 
+    pse on layers and mean log pse Cascading PSE
+    (d_layers, cpse) : d_layers vector and real number cpse
+     
+    netname = 'vgg11'
+    pmodel = getattr(models, netname)(pretrained=True)
+    (d_layers, cpse) = cPSE.cpse(pmodel)
+     
+    """
+    A_t = get_layer_matrix_set(pmodel)
+    eset = get_eigenvals_layer_matrix_set(A_t[0])
+    eset_per = eigenvals_set_to_periodic(eset)
+    d_layers = d_layers_pse(eset_per)
+    return d_layers, np.mean(np.log10(d_layers))
 
 

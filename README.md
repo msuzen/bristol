@@ -34,11 +34,28 @@ pip install -upgrade git+https://github.com/msuzen/bristol.git
 ```
 
 ## Documentation
+### Complexity of a deep learning model: cPSE
+
+You need to put your model as pretrained model format of PyTorch. An example for vgg 
+
+```
+from bristol import cPSE
+import torchvision.models as models
+netname = 'vgg11'
+pmodel = getattr(models, netname)(pretrained=True)
+(d_layers, cpse) = cPSE.cpse(pmodel)
+```
+
+This would give `cpse` a single number expressing the complexity of your network and `d_layers` evolution of 
+`periodic spectral ergodicity` withing layers as a vector, order matters.
+
+### Complex Circular Ensembles and prototype notebooks 
 
 * Basics of circular ensembles [ipynb](https://github.com/msuzen/bristol/blob/master/works/spectralErgodicity/01_generating_circular_ensembles_notes.ipynb). 
 
 * Computing spectral ergodicity for generated matrices [ipynb](https://github.com/msuzen/bristol/blob/master/works/spectralErgodicity/01_generating_circular_ensembles_notes.ipynb). This is to reproduce the main figure from [arXiv:1704.08693](https://arxiv.org/abs/1704.08303).
- 
+
+* The concept of cascading periodic ergodicity (cPSE) [ipynb](https://github.com/msuzen/bristol/blob/master/works/works/cPSE/periodic_spectral_ergodicity_dnn.ipynb) This is only to reproduce paper's results from [arXiv:1911.07831](https://arxiv.org/abs/1911.07831).
 
 ## Contact
 
@@ -50,9 +67,10 @@ pip install -upgrade git+https://github.com/msuzen/bristol.git
 
 * Spectral Ergodicity in Deep Learning Architectures via Surrogate Random Matrices, Mehmet Süzen, Cornelius Weber, Joan J. Cerdà, [arXiv:1704.08693](https://arxiv.org/abs/1704.08303)
 
+* Periodic Spectral Ergodicity: A Complexity Measure for Deep Neural Networks and Neural Architecture Search, Mehmet Süzen, Cornelius Weber, Joan J. Cerdà, [arXiv:1911.07831](https://arxiv.org/abs/1911.07831)
 ## Citation
 
-If you use the ideas from this package please do cite as follows 
+If you use the ideas or tools from this package please do cite our manuscripts.
 
 ```
 @article{suezen2017a,
