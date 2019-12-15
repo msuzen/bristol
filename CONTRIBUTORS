@@ -1,2 +1,5 @@
 Mehmet Suzen <suzen@acm.org> (github:msuzen): Principal Author, Maintainer
-Christian Garbers <christian.garbers@googlemail.com>: (github:cgars): One of initial Code review
+Cornelius Weber <weber@informatik.uni-hamburg.de>: Scientific contributor
+J.J. Cerda <jj.cerda@uib.cat>: Scientific contributor
+Charles Martin : Scientific contributor; extraction of weights information from pytorch
+Christian Garbers: One-of initial Code review 

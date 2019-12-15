@@ -94,7 +94,7 @@ class Circular:
         Generate random matrix Circular Unitary Ensemble (CUE)
 
         Author: M.Suzen
-        Author: Christian Garbers
+        Review/reporter: C. Garbers
         
         params:
         N          Size of rectangular array NxN.
