@@ -36,14 +36,15 @@ pip install -upgrade git+https://github.com/msuzen/bristol.git
 ## Documentation
 ### Complexity of a deep learning model: cPSE
 
-You need to put your model as pretrained model format of PyTorch. An example for vgg 
+You need to put your model as pretrained model format of PyTorch. An example for vgg, 
+and use `cPSE.pse_measure` function simply:
 
 ```
 from bristol import cPSE
 import torchvision.models as models
 netname = 'vgg11'
 pmodel = getattr(models, netname)(pretrained=True)
-(d_layers, cpse) = cPSE.cpse(pmodel)
+(d_layers, cpse) = cPSE.cpse_measure(pmodel)
 ```
 
 This would give `cpse` a single number expressing the complexity of your network and `d_layers` evolution of 
