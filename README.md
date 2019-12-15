@@ -7,9 +7,9 @@
 [![Downloads](http://pepy.tech/badge/bristol)](https://pepy.tech/project/bristol)
 [![Downloads](https://pepy.tech/badge/bristol/month)](https://pepy.tech/project/bristol)
 
-Parallel Random Matrix tools.
+Parallel random matrix tools and complexity for deep learning
 
-Bristol implements techniques developed by Mezzadri with parallel processing capabilities and a data model for further processing for generating random matrices. Circular module provides methods to generate matrices from Circular Unitary Ensemble (CUE), Circular Ortogonal Ensemble (COE) and Circular Symplectic Ensemble (CSE). Additional spectral analysis utilities are also implemented, such as computation of spectral density and spectral ergodicity.
+Bristol implements techniques developed by Mezzadri with parallel processing capabilities and a data model for further processing for generating random matrices. Circular module provides methods to generate matrices from Circular Unitary Ensemble (CUE), Circular Ortogonal Ensemble (COE) and Circular Symplectic Ensemble (CSE). Additional spectral analysis utilities are also implemented, such as computation of spectral density and spectral ergodicity for complexity of deep learning architectures.
 
 ## Features
 
@@ -17,6 +17,7 @@ Bristol implements techniques developed by Mezzadri with parallel processing cap
 * Random matrices: Reproducibility both in serial and parallel processing.
 * Eigenvalue Spectra, spectral densitiy.
 * Kullbach-Leibler divergence and spectral ergodicity measure functionality.
+* Cascading Periodic Spectral Ergodicity (cPSE)
 
 ## Installation
 
@@ -62,5 +63,15 @@ If you use the ideas from this package please do cite as follows
     archivePrefix={arXiv},
     primaryClass={stat.ML}
 }
+```
 
+```
+@article{suezen2019a,
+    title={Periodic Spectral Ergodicity: A Complexity Measure for Deep Neural Networks and Neural Architecture Search},
+    author={Mehmet Süzen and Cornelius Weber and Joan J. Cerdà},
+    year={2019},
+    eprint={1911.07831},
+    archivePrefix={arXiv},
+    primaryClass={stat.ML}
+}
 ```
