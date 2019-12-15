@@ -37,7 +37,7 @@ pip install -upgrade git+https://github.com/msuzen/bristol.git
 ### Complexity of a deep learning model: cPSE
 
 You need to put your model as pretrained model format of PyTorch. An example for vgg, 
-and use `cPSE.pse_measure` function simply:
+and use `cPSE.cpse_measure` function simply:
 
 ```
 from bristol import cPSE
