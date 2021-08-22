@@ -3,8 +3,6 @@
      Ergodicity Module:
       
 
-     Author: M. Suzen
-
 """
 
 from future.builtins import range
@@ -20,7 +18,6 @@ class Ergodicity:
              
            Compute spectral density
     
-           Author: M.Suzen
     
            Given set of eigenvalues e_i, compute histogram of 
            Angle(e_i) from -Pi to Pi at a given spacing.
@@ -85,7 +82,6 @@ class Ergodicity:
          
          Compute TM metric for given set of eigenvalues e_i.
     
-         Author: M.Suzen
     
          Input
           c_eigen_ensemble : set of eigenvalues as a 1D np array
@@ -150,7 +146,6 @@ class Ergodicity:
     
         Compute Kullback-Leibler Divergence in two directions. 
     
-        Author: M.Suzen
     
         Input:
          Nk, Nk_minus     Two 1D numpy arrays 

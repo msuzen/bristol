@@ -2,7 +2,6 @@
    
      Generating Circular Ensembles
 
-     Author: M. Suzen
 
 """
 
@@ -18,7 +17,6 @@ def _n_eigen_circular2(seed, N, size, ensemble='CUE',
         This is a wrapper for _n_eigen_circular, so `seed` comes
         as first argument.
         
-        Author: M.Suzen
 
         """
         ce = Circular()
@@ -36,7 +34,6 @@ class Circular:
         
         Generate antisymmetric unit matrix of size NxN.
         
-        Author: M.Suzen
         
         params:
         N      Size of rectangular NxN ndarray, defaults to 2.
@@ -69,7 +66,6 @@ class Circular:
         
         Generate unit symplectic matrix 2Nx2N.
         
-        Author: M.Suzen
         
         params:
         N      Base size of rectangular array 2Nx2N ndarray.
@@ -93,7 +89,6 @@ class Circular:
         
         Generate random matrix Circular Unitary Ensemble (CUE)
 
-        Author: M.Suzen
         Review/reporter: C. Garbers
         
         params:
@@ -136,7 +131,6 @@ class Circular:
 
         Generate random matrix Circular Orthogonal Ensemble (COE)
 
-        Author: M.Suzen
 
         params:
         N          Size of rectangular array NxN.
@@ -170,7 +164,6 @@ class Circular:
 
         Generate random matrix Circular Symplectic Ensemble (CSE)
 
-        Author: M.Suzen
 
         params:
         N          Size of rectangular array NxN.
@@ -214,7 +207,6 @@ class Circular:
            Generate eigenvalues of a matrix that is a realization from circular 
            random matrix ensemble.
           
-           Author: M.Suzen
 
            params:
            N     Size of the square random matrix, NxN.
@@ -260,7 +252,6 @@ class Circular:
         by generating `size` number of matrices. A choice
         of seed is generated if set_seed is False.
 
-        Author: M.Suzen, C.Garbers
         
         params:
         N          Size of the rectangular matrix, NxN.
@@ -295,8 +286,6 @@ class Circular:
          
         Compute eigenvalues of given circular ensemble, in parallel or serial.
         
-
-        Author: M.Suzen
 
         params:
         N           Size of the rectangular matrix, NxN.

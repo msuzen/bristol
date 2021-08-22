@@ -2,7 +2,6 @@
    
      Data Generation Module
      
-     Author: M. Suzen
 
 """
 from future.builtins import range
@@ -27,8 +26,6 @@ class Generate:
           Generate eigenvalues of matrices of different size
           drawn from a circular ensemble.
 
-
-           Author: M.Suzen
 
            params:
            range_N   set of Size of the rectangular matrix, NxN.

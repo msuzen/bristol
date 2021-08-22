@@ -2,8 +2,6 @@
    
      Statistics Helper Methods
 
-     Author: M. Suzen
-
 """
 
 
@@ -17,7 +15,6 @@ class histogram:
 
           Find optimal bin size for histogram of x vector.
           
-          Author: M.Suzen
 
           param:
           x    numpy array

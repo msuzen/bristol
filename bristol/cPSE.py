@@ -3,7 +3,6 @@
      cPSE related functionality
      
 
-     Author: M. Suzen
 
 """
 
