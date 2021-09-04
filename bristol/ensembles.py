@@ -7,7 +7,6 @@
 
 import numpy as np
 import multiprocessing as mp
-from future.builtins import range
 from builtins import map
 from functools import partial
 

@@ -19,7 +19,6 @@ setup(
       packages=['bristol'],
       install_requires=[
                         'numpy >= 1.11', 
-                        'future >= 0.16.0', 
                         'torch >= 1.3.0', 
                         'torchvision >= 0.4.1a0+d94043a'
                        ],

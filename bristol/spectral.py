@@ -5,7 +5,6 @@
 
 """
 
-from future.builtins import range
 import numpy as np
 
 

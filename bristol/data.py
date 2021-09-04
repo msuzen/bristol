@@ -4,7 +4,6 @@
      
 
 """
-from future.builtins import range
 import numpy as np
 from bristol.ensembles import Circular
 
