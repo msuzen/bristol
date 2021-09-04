@@ -7,9 +7,11 @@
 [![Downloads](http://pepy.tech/badge/bristol)](https://pepy.tech/project/bristol)
 [![Downloads](https://pepy.tech/badge/bristol/month)](https://pepy.tech/project/bristol)
 
-Parallel random matrix tools and complexity for deep learning
-
-Bristol implements techniques developed by Mezzadri with parallel processing capabilities and a data model for further processing for generating random matrices. Circular module provides methods to generate matrices from Circular Unitary Ensemble (CUE), Circular Ortogonal Ensemble (COE) and Circular Symplectic Ensemble (CSE). Additional spectral analysis utilities are also implemented, such as computation of spectral density and spectral ergodicity for complexity of deep learning architectures.
+Parallel random matrix tools and random matrix theory deep learning applications. 
+Generate matrices from Circular Unitary Ensemble (CUE), Circular Ortogonal Ensemble (COE) and 
+Circular Symplectic Ensemble (CSE). Additional spectral analysis utilities are 
+also implemented, such as computation of spectral density and spectral ergodicity 
+for complexity of deep learning architectures.
 
 ## Features
 
