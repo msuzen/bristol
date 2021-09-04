@@ -5,9 +5,11 @@
 [![PyPI version](https://img.shields.io/pypi/v/bristol.svg?maxAge=2591000)](https://pypi.org/project/bristol/)
 [![Downloads](http://pepy.tech/badge/bristol)](https://pepy.tech/project/bristol)
 [![Downloads](https://pepy.tech/badge/bristol/month)](https://pepy.tech/project/bristol)
+[![arXiv:1704.08303](http://img.shields.io/badge/arXiv-1704.08303-B31B1B.svg)](https://arxiv.org/abs/1704.08303)
 [![Zenodo:Archive:v0.1.8](https://zenodo.org/badge/DOI/10.5281/zenodo.579642.svg)](https://doi.org/10.5281/zenodo.579642)
 [![Zenodo:Surrogate Matrices Data](https://zenodo.org/badge/DOI/10.5281/zenodo.822411.svg)](https://doi.org/10.5281/zenodo.822411)
-[![arXiv:1704.08303](http://img.shields.io/badge/arXiv-1704.08303-B31B1B.svg)](https://arxiv.org/abs/1704.08303)
+[![arXiv:1910.09394](http://img.shields.io/badge/arXiv-1910.09394-B31B1B.svg)](https://arxiv.org/abs/1910.09394)
+[![arXiv:2006.13687](http://img.shields.io/badge/arXiv-2006.13687-B31B1B.svg)](https://arxiv.org/abs/2006.13687)
 
 Parallel random matrix tools and random matrix theory deep learning applications. 
 Generate matrices from Circular Unitary Ensemble (CUE), Circular Ortogonal Ensemble (COE) and 
