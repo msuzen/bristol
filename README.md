@@ -25,6 +25,7 @@ for complexity of deep learning architectures.
 * Kullbach-Leibler divergence and spectral ergodicity measure functionality.
 * Cascading Periodic Spectral Ergodicity (cPSE)
 
+
 ## Installation
 
 Install with pip from [pypi](https://pypi.python.org/pypi/bristol).
@@ -56,13 +57,15 @@ pmodel = getattr(models, netname)(pretrained=True)
 This would give `cpse` a single number expressing the complexity of your network and `d_layers` evolution of 
 `periodic spectral ergodicity` withing layers as a vector, order matters.
 
-### Complex Circular Ensembles and prototype notebooks 
+### Prototype notebooks 
 
 * Basics of circular ensembles [ipynb](https://github.com/msuzen/bristol/blob/master/works/spectralErgodicity/01_generating_circular_ensembles_notes.ipynb). 
 
 * Computing spectral ergodicity for generated matrices [ipynb](https://github.com/msuzen/bristol/blob/master/works/spectralErgodicity/01_generating_circular_ensembles_notes.ipynb). This is to reproduce the main figure from [arXiv:1704.08693](https://arxiv.org/abs/1704.08303).
 
 * The concept of cascading periodic ergodicity (cPSE) [ipynb](https://github.com/msuzen/bristol/blob/master/works/cPSE/periodic_spectral_ergodicity_dnn.ipynb) This is only to reproduce paper's results from [arXiv:1911.07831](https://arxiv.org/abs/1911.07831).
+
+* [Empirical deviations of semicircle law in mixed-matrix ensembles](http://dx.doi.org/10.13140/RG.2.2.12015.97443) [ipynb](https://github.com/msuzen/bristol/blob/master/works/mixedMatrixEnsembles/mixedMatrixEnsembles/deviation_semicirclelaw.ipynb) Reproduces the work with the same title.
 
 ## Contact
 
