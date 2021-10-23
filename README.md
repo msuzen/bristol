@@ -65,7 +65,7 @@ This would give `cpse` a single number expressing the complexity of your network
 
 * The concept of cascading periodic ergodicity (cPSE) [ipynb](https://github.com/msuzen/bristol/blob/master/works/cPSE/periodic_spectral_ergodicity_dnn.ipynb) This is only to reproduce paper's results from [arXiv:1911.07831](https://arxiv.org/abs/1911.07831).
 
-* [Empirical deviations of semicircle law in mixed-matrix ensembles](http://dx.doi.org/10.13140/RG.2.2.12015.97443) [ipynb](https://github.com/msuzen/bristol/blob/master/works/mixedMatrixEnsembles/mixedMatrixEnsembles/deviation_semicirclelaw.ipynb) Reproduces the work with the same title.
+* [Empirical deviations of semicircle law in mixed-matrix ensembles](http://dx.doi.org/10.13140/RG.2.2.12015.97443) [ipynb](https://github.com/msuzen/bristol/blob/master/works/mixedMatrixEnsembles/deviation_semicirclelaw.ipynb) Reproduces the work with the same title.
 
 ## Contact
 
