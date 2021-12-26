@@ -80,12 +80,12 @@ This would give `cpse` a single number expressing the complexity of your network
 * Spectral Ergodicity in Deep Learning Architectures via Surrogate Random Matrices, Mehmet Süzen, Cornelius Weber, Joan J. Cerdà, [arXiv:1704.08693](https://arxiv.org/abs/1704.08303)
 
 * Periodic Spectral Ergodicity: A Complexity Measure for Deep Neural Networks and Neural Architecture Search, Mehmet Süzen, Cornelius Weber, Joan J. Cerdà, [arXiv:1911.07831](https://arxiv.org/abs/1911.07831)
-## Citation
 
 * Empirical deviations of semicircle law in mixed-matrix ensembles,  <br>
   M. Suezen, 
   [hal-03464130](https://hal.archives-ouvertes.fr/hal-03464130) | [ipynb](https://github.com/msuzen/bristol/blob/master/works/mixedMatrixEnsembles/deviation_semicirclelaw.ipynb) Reproduces the work with the same title.
 
+## Citation
 
 If you use the ideas or tools from this package please do cite our manuscripts.
 
