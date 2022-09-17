@@ -161,4 +161,19 @@ def cpse_measure(pmodel):
     d_layers = d_layers_pse(eset_per)
     return d_layers, np.mean(np.log10(d_layers))
 
+def cpse_measure_vanilla(matrices):
+    """
 
+    Given list of weight matrices.
+    pse on layers and mean log pse Cascading PSE
+    (d_layers, cpse) : d_layers vector and real number cpse
+
+    np.random.seed(42)
+    matrices = [np.random.normal(size=(64,64)) for _ in range(10)]
+    (d_layers, cpse) = cPSE.cpse_measure_vanilla(matrices)
+
+    """
+    eset = get_eigenvals_layer_matrix_set(matrices)
+    eset_per = eigenvals_set_to_periodic(eset)
+    d_layers = d_layers_pse(eset_per)
+    return d_layers, np.mean(np.log10(d_layers))
