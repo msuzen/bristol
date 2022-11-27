@@ -23,7 +23,7 @@ for complexity of deep learning architectures.
 * Random matrices: Reproducibility both in serial and parallel processing.
 * Eigenvalue Spectra, spectral densitiy.
 * Kullbach-Leibler divergence and spectral ergodicity measure functionality.
-* Cascading Periodic Spectral Ergodicity (cPSE)
+* Cascading Periodic Spectral Ergodicity (cPSE) : This is a complexity measure and could also detect when to stop addinig more layers.
 
 
 ## Installation
