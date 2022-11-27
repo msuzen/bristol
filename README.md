@@ -116,6 +116,27 @@ This would give `cpse` a single number expressing the complexity of your network
 If you use the ideas or tools from this package please do cite our manuscripts.
 
 ```
+@article{suezen2021a,
+    title={Empirical deviations of semicircle law in mixed-matrix ensembles},
+    author={Mehmet Süzen},
+    year={2021},
+    eprint={hal-03464130},
+    url={https://hal.archives-ouvertes.fr/hal-03464130}
+}
+```
+
+```
+@article{suezen2019a,
+    title={Periodic Spectral Ergodicity: A Complexity Measure for Deep Neural Networks and Neural Architecture Search},
+    author={Mehmet Süzen and Joan J. Cerdà and Cornelius Weber},
+    year={2019},
+    eprint={1911.07831},
+    archivePrefix={arXiv},
+    primaryClass={stat.ML}
+}
+```
+
+```
 @article{suezen2017a,
     title={Spectral Ergodicity in Deep Learning Architectures via Surrogate Random Matrices},
     author={Mehmet Süzen and Cornelius Weber and Joan J. Cerdà},
@@ -126,13 +147,4 @@ If you use the ideas or tools from this package please do cite our manuscripts.
 }
 ```
 
-```
-@article{suezen2019a,
-    title={Periodic Spectral Ergodicity: A Complexity Measure for Deep Neural Networks and Neural Architecture Search},
-    author={Mehmet Süzen and Cornelius Weber and Joan J. Cerdà},
-    year={2019},
-    eprint={1911.07831},
-    archivePrefix={arXiv},
-    primaryClass={stat.ML}
-}
-```
+
