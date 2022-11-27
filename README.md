@@ -41,6 +41,7 @@ pip install -upgrade git+https://github.com/msuzen/bristol.git
 ```
 
 ## Documentation
+
 ### Complexity of a deep learning model: cPSE
 
 ### Vanilla case
@@ -58,7 +59,14 @@ matrices = [np.random.normal(size=(64,64)) for _ in range(10)]
 ```
 Even for set of Gaussian matrices, d_layers decrease.
 Note that different layer types should be converted to a matrix
-format, i.e., CNNs to 2D matrices. See the main paper.
+format, i.e., CNNs to 2D matrices. See the main paper. 
+
+#### When should I stop adding more layers in deep learning?
+
+`d_layers` is a decreasing vector, it will saturate at some point, that point is where 
+adding more layers won’t improve the performance. This is data, learning and architecture 
+independent measure. 
+
 
 ### For torch models
 You need to put your model as pretrained model format of PyTorch. An example for vgg, 
