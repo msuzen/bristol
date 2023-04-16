@@ -6,6 +6,10 @@ exec(fp.read())
 with open('README.md') as f:
     long_description = f.read()
 
+import sys
+if (sys.version_info.major, sys.version_info.minor) < (3,9):
+    sys.exit(' Python <= 3.9 is not supported or preferred')
+
 setup(
       name='bristol',
       version=__version__,
@@ -20,7 +24,7 @@ setup(
       install_requires=[
                         'numpy >= 1.11', 
                         'torch >= 1.3.0', 
-                        'torchvision >= 0.4.1a0+d94043a'
+                        'torchvision >= 0.4.1'
                        ],
       test_suite="test",
       zip_safe=False

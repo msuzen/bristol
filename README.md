@@ -28,10 +28,16 @@ for complexity of deep learning architectures.
 
 ## Installation
 
-Install with pip from [pypi](https://pypi.python.org/pypi/bristol).
+Install with pip from [pypi](https://pypi.python.org/pypi/bristol), as of 0.2.14 we prefer Python > 3.9 
 
 ```bash
 pip install bristol
+```
+
+Running tests
+
+```bash
+bash run_tests.py
 ```
 
 To use the latest development version
