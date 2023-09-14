@@ -3,7 +3,7 @@
  
 [![Coverage Status](https://coveralls.io/repos/github/msuzen/bristol/badge.svg?branch=master)](https://coveralls.io/github/msuzen/bristol?branch=master) 
 [![PyPI version](https://img.shields.io/pypi/v/bristol.svg?maxAge=2591000)](https://pypi.org/project/bristol/)
-[![Downloads](http://pepy.tech/badge/bristol)](https://pepy.tech/project/bristol)
+[![Downloads](https://static.pepy.tech/badge/bristol)](https://pepy.tech/project/bristol)
 [![Downloads](https://pepy.tech/badge/bristol/month)](https://pepy.tech/project/bristol)
 [![arXiv:1704.08303](http://img.shields.io/badge/arXiv-1704.08303-B31B1B.svg)](https://arxiv.org/abs/1704.08303)
 [![Zenodo:Archive:v0.1.8](https://zenodo.org/badge/DOI/10.5281/zenodo.579642.svg)](https://doi.org/10.5281/zenodo.579642)
