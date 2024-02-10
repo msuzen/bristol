@@ -50,7 +50,7 @@ pip install -upgrade git+https://github.com/msuzen/bristol.git
 
 ### Complexity of a deep learning model: cPSE
 
-### Vanilla case
+#### Vanilla case
 
 In the vanilla case a list of matrices that are representative of 
 ordered set of weight matrices can be used to compute cPSE over
@@ -73,6 +73,12 @@ format, i.e., CNNs to 2D matrices. See the main paper.
 adding more layers won’t improve the performance. This is data, learning and architecture 
 independent measure. 
 
+### Random Stream Chunking
+
+Package employs a technique called random stream chunking to ensure reproducibility  
+between parallel and serial runs. A blog post explaining this:  
+[Exact reproducibility of stochastic simulations for parallel and serial algorithms simultaneously
+Random Stream Chunking](http://memosisland.blogspot.com/2024/02/exact-reproducibility-of-stochastic.html)
 
 ### For torch models
 You need to put your model as pretrained model format of PyTorch. An example for vgg, 
