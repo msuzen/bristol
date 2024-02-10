@@ -73,14 +73,8 @@ format, i.e., CNNs to 2D matrices. See the main paper.
 adding more layers won’t improve the performance. This is data, learning and architecture 
 independent measure. 
 
-### Random Stream Chunking
-
-Package employs a technique called random stream chunking to ensure reproducibility  
-between parallel and serial runs. A blog post explaining this:  
-[Exact reproducibility of stochastic simulations for parallel and serial algorithms simultaneously
-Random Stream Chunking](http://memosisland.blogspot.com/2024/02/exact-reproducibility-of-stochastic.html)
-
 ### For torch models
+
 You need to put your model as pretrained model format of PyTorch. An example for vgg, 
 and use `cPSE.cpse_measure` function simply:
 
@@ -94,6 +88,14 @@ pmodel = getattr(models, netname)(pretrained=True)
 
 This would give `cpse` a single number expressing the complexity of your network and `d_layers` evolution of 
 `periodic spectral ergodicity` withing layers as a vector, order matters.
+
+### Random Stream Chunking
+
+Package employs a technique called random stream chunking to ensure reproducibility  
+between parallel and serial runs. A blog post explaining this:  
+[Exact reproducibility of stochastic simulations for parallel and serial algorithms simultaneously
+Random Stream Chunking](http://memosisland.blogspot.com/2024/02/exact-reproducibility-of-stochastic.html)
+
 
 ### Prototype notebooks 
 
