@@ -11,6 +11,8 @@
 [![arXiv:1911.07831](http://img.shields.io/badge/arXiv-1911.07831-B31B1B.svg)](https://arxiv.org/abs/1911.07831)
 [![arXiv:2006.13687](http://img.shields.io/badge/arXiv-2006.13687-B31B1B.svg)](https://arxiv.org/abs/2006.13687)
 
+**This package is in maintanance mode only.**
+
 Parallel random matrix tools and random matrix theory deep learning applications. 
 Generate matrices from Circular Unitary Ensemble (CUE), Circular Ortogonal Ensemble (COE) and 
 Circular Symplectic Ensemble (CSE). Additional spectral analysis utilities are 
