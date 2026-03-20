@@ -1,5 +1,25 @@
 # Bristol
 
+**This package is frozen and not active.** 
+
+Please see [leymosun](https://github.com/msuzen/leymosun) for new RMT and randomness research package which is in active development. 
+
+Bristol is only in Q&A mode. Please raise your question in the Issue or send us an e-mail, we will try to respond and give feedback. 
+If you use Bristol in your research. Please cite as follow. 
+
+```
+@misc{suzen17bris,
+  title = {Bristol: A Python Package for Random Matrix Ensembles}, 
+  author = {S{\"u}zen, M.},
+  year = {2017},
+  publisher = {Zenodo},
+  doi = {10.5281/zenodo.18789648}, 
+  url = {https://doi.org/10.5281/zenodo.18789648},
+  howpublished = {\verb|pip install bristol|} 
+  % OR the specific PyPI URL if available, e.g., https://pypi.org/project/bristol
+}
+```
+
  
 [![Coverage Status](https://coveralls.io/repos/github/msuzen/bristol/badge.svg?branch=master)](https://coveralls.io/github/msuzen/bristol?branch=master) 
 [![PyPI version](https://img.shields.io/pypi/v/bristol.svg?maxAge=2591000)](https://pypi.org/project/bristol/)
@@ -11,7 +31,7 @@
 [![arXiv:1911.07831](http://img.shields.io/badge/arXiv-1911.07831-B31B1B.svg)](https://arxiv.org/abs/1911.07831)
 [![arXiv:2006.13687](http://img.shields.io/badge/arXiv-2006.13687-B31B1B.svg)](https://arxiv.org/abs/2006.13687)
 
-**This package is in maintanance mode only.**
+## Summary
 
 Parallel random matrix tools and random matrix theory deep learning applications. 
 Generate matrices from Circular Unitary Ensemble (CUE), Circular Ortogonal Ensemble (COE) and 
